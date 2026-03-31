@@ -9,8 +9,42 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const translation = {
+  fr: {
+    logoSub: "Association Francophone des Étudiants en Chine",
+    introTitle: "Rejoins la communauté !",
+    introText: "Rejoins le réseau des étudiants francophones en Chine. Événements, entraide, et opportunités professionnelles !",
+    wechatSubtitle: "Au cœur de la vie en Chine",
+    instagramSubtitle: "Suis notre actualité au quotidien",
+    linkedinSubtitle: "Conférences et visites d'entreprises",
+    silklinkSubtitle: "Ta solution de recherche de stage",
+    partnersTitle: "Des étudiants d'horizons différents",
+    footerText: " Tous droits réservés.",
+    wechatModalTitle: "Rejoins-nous sur WeChat",
+    wechatModalText: "Scanne ce QR code avec WeChat et ajoute la personne chargée de te rediriger vers le groupe qui te correspond",
+    close: "Fermer"
+  },
+  en: {
+    logoSub: "Francophone Student Association in China",
+    introTitle: "Join the community!",
+    introText: "Join the network of francophone students in China. Events, support, and professional opportunities!",
+    wechatSubtitle: "At the heart of life in China",
+    instagramSubtitle: "Follow our daily news",
+    linkedinSubtitle: "Conferences and company visits",
+    silklinkSubtitle: "Your internship search solution",
+    partnersTitle: "Students from diverse backgrounds",
+    footerText: " All rights reserved.",
+    wechatModalTitle: "Join us on WeChat",
+    wechatModalText: "Scan this QR code with WeChat and add the person in charge of redirecting you to the right group",
+    close: "Close"
+  }
+};
+
 function App() {
   const [isWechatOpen, setIsWechatOpen] = useState(false);
+  const [lang, setLang] = useState('fr');
+
+  const t = translation[lang];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,6 +64,32 @@ function App() {
   return (
     <div className="mobile-app-container">
 
+      {/* Language Toggle */}
+      <div style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 50, display: 'flex', gap: '0.4rem' }}>
+        <button 
+          onClick={() => setLang('fr')}
+          style={{ 
+            background: lang === 'fr' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)',
+            color: 'white', border: '1px solid ' + (lang === 'fr' ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.1)'), 
+            borderRadius: '12px', padding: '4px 10px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600,
+            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', transition: 'all 0.2s'
+          }}
+        >
+          FR
+        </button>
+        <button 
+          onClick={() => setLang('en')}
+          style={{ 
+            background: lang === 'en' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)',
+            color: 'white', border: '1px solid ' + (lang === 'en' ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.1)'), 
+            borderRadius: '12px', padding: '4px 10px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600,
+            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', transition: 'all 0.2s'
+          }}
+        >
+          EN
+        </button>
+      </div>
+
       {/* Main Content */}
       <div className="content-wrapper">
         
@@ -46,7 +106,7 @@ function App() {
             </div>
           </div>
           <h1 className="logo-sub" style={{ fontSize: '1.1rem', fontWeight: '500', color: 'white', marginTop: '0.5rem' }}>
-            Association Francophone des Étudiants en Chine
+            {t.logoSub}
           </h1>
         </motion.div>
 
@@ -57,11 +117,8 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2>Rejoins la communauté !</h2>
-          <p>
-            Rejoins le réseau des étudiants francophones en Chine. 
-            Événements, entraide, et opportunités professionnelles !
-          </p>
+          <h2>{t.introTitle}</h2>
+          <p>{t.introText}</p>
         </motion.div>
 
         {/* Links Container */}
@@ -84,7 +141,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">WeChat</span>
-              <span className="link-subtitle">Au cœur de la vie en Chine</span>
+              <span className="link-subtitle">{t.wechatSubtitle}</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.button>
@@ -102,7 +159,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">Instagram</span>
-              <span className="link-subtitle">Suis notre actualité au quotidien</span>
+              <span className="link-subtitle">{t.instagramSubtitle}</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.a>
@@ -120,7 +177,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">LinkedIn</span>
-              <span className="link-subtitle">Conférences et visites d'entreprises</span>
+              <span className="link-subtitle">{t.linkedinSubtitle}</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.a>
@@ -138,7 +195,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">SilkLink</span>
-              <span className="link-subtitle">Ta solution de recherche de stage</span>
+              <span className="link-subtitle">{t.silklinkSubtitle}</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.a>
@@ -153,7 +210,7 @@ function App() {
           transition={{ duration: 0.5, delay: 0.4 }}
           style={{ marginTop: '2rem', textAlign: 'center' }}
         >
-          <h3 style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1rem' }}>Universités Partenaires</h3>
+          <h3 style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1rem' }}>{t.partnersTitle}</h3>
           <div className="glass-panel" style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -171,25 +228,21 @@ function App() {
         </motion.div>
 
         <div className="footer-text">
-          © {new Date().getFullYear()} AFEC Chine. Tous droits réservés.
+          © {new Date().getFullYear()} AFEC Chine. {t.footerText}
         </div>
       </div>
 
       {/* WeChat QR Code Modal */}
       <div className={`modal-overlay ${isWechatOpen ? 'active' : ''}`} onClick={() => setIsWechatOpen(false)}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <h3 style={{ color: 'white', marginBottom: '0.5rem', fontWeight: 600 }}>Rejoins-nous sur WeChat</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>Scanne ce QR code avec WeChat et ajoute la personne chargée de te rediriger vers le groupe qui te correspond</p>
+          <h3 style={{ color: 'white', marginBottom: '0.5rem', fontWeight: 600 }}>{t.wechatModalTitle}</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>{t.wechatModalText}</p>
           
-          <div className="qr-placeholder">
-            <span style={{color: '#999', fontSize: '0.9rem', textAlign: 'center'}}>
-              [ Emplacement du <br/>QR Code WeChat ]
-            </span>
-            {/* <img src="/qr-code.jpg" alt="WeChat QR" style={{width: '100%', height: '100%', borderRadius: '4px'}} /> */}
+          <div className="qr-placeholder" dangerouslySetInnerHTML={{ __html: lang === 'fr' ? '<span style="color: #999; font-size: 0.9rem; text-align: center;">[ Emplacement du <br/>QR Code WeChat ]</span>' : '<span style="color: #999; font-size: 0.9rem; text-align: center;">[ WeChat QR Code <br/>Placeholder ]</span>' }}>
           </div>
           
           <button className="modal-close" onClick={() => setIsWechatOpen(false)}>
-            Fermer
+            {t.close}
           </button>
         </div>
       </div>
