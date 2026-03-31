@@ -238,7 +238,14 @@ function App() {
           <h3 style={{ color: 'white', marginBottom: '0.5rem', fontWeight: 600 }}>{t.wechatModalTitle}</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>{t.wechatModalText}</p>
           
-          <div className="qr-placeholder" dangerouslySetInnerHTML={{ __html: lang === 'fr' ? '<span style="color: #999; font-size: 0.9rem; text-align: center;">[ Emplacement du <br/>QR Code WeChat ]</span>' : '<span style="color: #999; font-size: 0.9rem; text-align: center;">[ WeChat QR Code <br/>Placeholder ]</span>' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(255,255,255,0.1)', padding: '0.5rem 1.25rem', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <img src="/benoit.jpg" alt="Benoît Sentenac" style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.8)' }} />
+              <span style={{ color: 'white', fontWeight: 600, fontSize: '1rem' }}>Benoît Sentenac</span>
+            </div>
+            <div style={{ background: 'white', padding: '0.5rem', borderRadius: '16px', display: 'inline-block', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
+              <img src="/qr.jpg" alt="WeChat QR Code" style={{ width: '200px', height: '200px', objectFit: 'contain', borderRadius: '8px' }} />
+            </div>
           </div>
           
           <button className="modal-close" onClick={() => setIsWechatOpen(false)}>
