@@ -62,9 +62,9 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2>Rejoignez la communauté</h2>
+          <h2>Rejoins la communauté !</h2>
           <p>
-            Rejoignez le réseau des étudiants francophones en Chine. 
+            Rejoins le réseau des étudiants francophones en Chine. 
             Événements, entraide, et opportunités professionnelles !
           </p>
         </motion.div>
@@ -107,7 +107,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">Instagram</span>
-              <span className="link-subtitle">Suivez notre actualité au quotidien</span>
+              <span className="link-subtitle">Suis notre actualité au quotidien</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.a>
@@ -143,7 +143,7 @@ function App() {
             </div>
             <div className="link-title">
               <span className="link-title-text">SilkLink</span>
-              <span className="link-subtitle">Notre solution de recherche de stage</span>
+              <span className="link-subtitle">Ta solution de recherche de stage</span>
             </div>
             <ChevronRight size={20} className="chevron" />
           </motion.a>
@@ -183,8 +183,8 @@ function App() {
       {/* WeChat QR Code Modal */}
       <div className={`modal-overlay ${isWechatOpen ? 'active' : ''}`} onClick={() => setIsWechatOpen(false)}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <h3 style={{ color: 'white', marginBottom: '0.5rem', fontWeight: 600 }}>Rejoignez-nous sur WeChat</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>Scannez ce QR code avec WeChat, ajoutez la personne chargée de vous rediriger vers le groupe qui vous correspond</p>
+          <h3 style={{ color: 'white', marginBottom: '0.5rem', fontWeight: 600 }}>Rejoins-nous sur WeChat</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>Scanne ce QR code avec WeChat et ajoute la personne chargée de te rediriger vers le groupe qui te correspond</p>
           
           <div className="qr-placeholder">
             <span style={{color: '#999', fontSize: '0.9rem', textAlign: 'center'}}>
