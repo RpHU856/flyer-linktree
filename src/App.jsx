@@ -29,11 +29,6 @@ function App() {
 
   return (
     <div className="mobile-app-container">
-      {/* Background Shapes */}
-      <div className="bg-shapes">
-        <div className="shape-1"></div>
-        <div className="shape-2"></div>
-      </div>
 
       {/* Main Content */}
       <div className="content-wrapper">
@@ -132,7 +127,7 @@ function App() {
 
           {/* Silklink - Highlighted Pro Solution */}
           <motion.a 
-            href="#" 
+            href="https://tally.so/r/woXN7M" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="link-button glass-panel"
