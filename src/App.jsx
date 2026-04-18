@@ -184,7 +184,7 @@ function App() {
 
           {/* Silklink - Highlighted Pro Solution */}
           <motion.a 
-            href="https://tally.so/r/woXN7M" 
+            href="https://www.silklink-afec.com/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="link-button glass-panel"
